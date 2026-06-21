@@ -1,0 +1,11 @@
+.env
+.cache
+cache.json
+genre_cache.json
+genre_name_cache.json
+spotify_genre_cache.json
+tracks_cache.json
+missing_tracks.csv
+overrides.csv
+__pycache__/
+*.pyc
