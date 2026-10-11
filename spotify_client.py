@@ -43,7 +43,9 @@ def _rate_limit_minutes(e: "spotipy.SpotifyException") -> int:
 
 
 def _simplify(item: dict) -> dict | None:
-    track = item.get("track") or item
+    # playlist_items nests the track/episode under "track"; some API
+    # responses instead use "item" for the same payload
+    track = item.get("track") or item.get("item") or item
     if not track or not track.get("id"):
         return None  # local files / unavailable tracks
     return {
